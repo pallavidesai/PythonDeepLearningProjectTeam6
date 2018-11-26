@@ -21,13 +21,9 @@ print(features_normalized)
 #Naive Bayes
 X_train,X_test,Y_train, Y_test = train_test_split(features_normalized,classes,test_size=0.25,random_state=1)
 
-scaler = preprocessing.MinMaxScaler()
-all_features_minmax = scaler.fit_transform(features)
-
 model = MultinomialNB()
-cv_scores = cross_val_score(model, all_features_minmax, classes, cv=10)
-
-cv_scores.mean()
+model.fit(X_train,Y_train.ravel())
+y_pred = model.predict(X_test)
 
 
 #K-fold cross validation
