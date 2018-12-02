@@ -28,4 +28,4 @@ for n in range(1, 50):
 
     #K-fold cross validation
     model_scores = cross_val_score(model,features_normalized,classes.ravel(), cv= 10)
-    print('Accuracy from 10-fold validation is: ',model_scores.mean())
+    print('With K = ', n ,' : Accuracy from 10-fold validation is: ',model_scores.mean())
