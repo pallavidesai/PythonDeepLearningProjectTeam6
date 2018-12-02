@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import MultinomialNB, GaussianNB
 from sklearn import preprocessing,metrics
 from sklearn.model_selection import cross_val_score
 from sklearn.cross_validation import train_test_split
@@ -21,7 +21,7 @@ print(features_normalized)
 #Naive Bayes
 X_train,X_test,Y_train, Y_test = train_test_split(features_normalized,classes,test_size=0.25,random_state=1)
 
-model = MultinomialNB()
+model = GaussianNB()
 model.fit(X_train,Y_train.ravel())
 y_pred = model.predict(X_test)
 
