@@ -29,3 +29,18 @@ y_pred = model.predict(X_test)
 #K-fold cross validation
 model_scores = cross_val_score(model,features_normalized,classes.ravel(), cv= 10)
 print('Accuracy from 10-fold validation is: ',model_scores.mean())
+
+age = int(input('Enter age: '))
+shape = int(input('Enter shape [Value 1 to 5]: '))
+margin = int(input('Enter margin [Value 1 to 5]: '))
+density = int(input('Enter density [Value 1 to 5]: '))
+
+features_new = [[age,shape,margin,density]]
+print(features_new)
+features_norm_test = normalized.fit_transform(features_new)
+y_pred_val = model.predict(features_norm_test)
+for i in y_pred_val:
+    if i == 0:
+        print('The predicted result from the model is: Benign')
+    else:
+        print('The predicted result from the model is: Malignant')
